@@ -1,5 +1,5 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import styles from "./FriendList.module.scss";
 
 function FriendList({ data }) {
@@ -20,14 +20,19 @@ function FriendList({ data }) {
   );
 }
 FriendList.defaultProps = {
-  type: "?",
-  amount: "?",
-  currency: "?",
+  avatar:
+    "https://st2.depositphotos.com/4111759/12123/v/600/depositphotos_121233262-stock-illustration-male-default-placeholder-avatar-profile.jpg",
+  name: "Unknow",
 };
-// FriendList.propTypes = {
-//   data: PropTypes.exact({
-//     id: PropTypes.number.isRequired,
-//   }),
-// };
+FriendList.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool,
+    })
+  ),
+};
 
 export default FriendList;

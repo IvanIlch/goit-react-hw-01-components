@@ -1,5 +1,5 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import styles from "./TransactionHistory.module.scss";
 
 function TransactionHistory({ data }) {
@@ -32,9 +32,16 @@ TransactionHistory.defaultProps = {
   amount: "?",
   currency: "?",
 };
-// TransactionHistory.propTypes = {
-//   // id: PropTypes.number.isRequired,
-// };
+TransactionHistory.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string,
+      type: PropTypes.string,
+      amount: PropTypes.string,
+      currency: PropTypes.string,
+    })
+  ),
+};
 
 function toUp(elem) {
   return elem[0].toUpperCase() + elem.slice(1);
