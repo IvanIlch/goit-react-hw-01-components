@@ -5,7 +5,14 @@ import FriendListItem from "./friendListItem/FriendListItem";
 function FriendList({ data }) {
   return (
     <ul className={styles.friendList}>
-      <FriendListItem data={data} />
+      {data.map((friend) => (
+        <FriendListItem
+          key={friend.id}
+          avatar={friend.avatar}
+          name={friend.name}
+          isOnline={friend.isOnline}
+        />
+      ))}
     </ul>
   );
 }

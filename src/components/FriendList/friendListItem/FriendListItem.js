@@ -2,20 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "../FriendList.module.scss";
 
-function FriendListItem({ data }) {
+function FriendListItem({ name, id, isOnline, avatar }) {
   return (
     <>
-      {data.map((el) => {
-        return (
-          <li key={el.id} className="item">
-            <span
-              className={el.isOnline ? styles.online : styles.notOnline}
-            ></span>
-            <img className={styles.avatar} src={el.avatar} alt="" width="48" />
-            <p className={styles.name}>{el.name}</p>
-          </li>
-        );
-      })}
+      <li key={id} className="item">
+        <span className={isOnline ? styles.online : styles.notOnline}></span>
+        <img className={styles.avatar} src={avatar} alt="" width="48" />
+        <p className={styles.name}>{name}</p>
+      </li>
     </>
   );
 }
