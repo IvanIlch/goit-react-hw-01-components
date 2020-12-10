@@ -5,7 +5,7 @@ import styles from "./Statistics.module.scss";
 function Statistic({ title, stats }) {
   return (
     <section className={styles.statistics}>
-      <h2 className="title">{title}</h2>
+      {title && <h2 className="title">{title}</h2>}
 
       <ul className={styles.statList}>
         {stats.map((stat) => {
@@ -34,7 +34,7 @@ function randomСolor() {
 }
 
 Statistic.defaultProps = {
-  title: "LIST",
+  // title: "LIST",
 };
 Statistic.propTypes = {
   title: PropTypes.string,
